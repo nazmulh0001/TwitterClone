@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace TwitterClone.Domain.Entities
+{
+    public class Like
+    {
+        public Guid _id;
+        public Guid _userId;
+        public Guid _tweetId;
+        private DateTime _createdAt;
+        private DateTime _modifiedAt;
+
+
+        public Like()
+        {
+            _id = Guid.NewGuid();
+            _createdAt = DateTime.UtcNow;
+        }
+
+        public Guid Id
+        {
+            get { return _id; }
+        }
+
+        public Guid UserId
+        {
+            get { return _userId; }
+            set { _userId = value; }
+        }
+
+        public Guid TwwetId
+        {
+            get { return _tweetId; }
+            set { _tweetId = value; }
+        }
+
+        public DateTime CreatedAt
+        {
+            get { return _createdAt; }
+        }
+
+        public DateTime ModifiedAt
+        {
+            get { return _modifiedAt; }
+            set { _modifiedAt = value; }
+        }
+    }
+}

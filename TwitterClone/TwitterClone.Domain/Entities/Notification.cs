@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TwitterClone.Domain.Entities;
 
-namespace TwitterClone.Domain
+namespace TwitterClone.Domain.Entities
 {
-    public class Message
+    public class Notification
     {
         private Guid _id;
-        private Guid _senderId;
-        private Guid _receiverId;
-        private string _content;
-        private DateTime _sentAt;
+        private Guid _userId;
+        private string _type;
+        private string _message;
         private bool _isRead;
         private DateTime _createdAt;
         private DateTime _modifiedAt;
 
-
-        public Message()
+        public Notification()
         {
             _id = Guid.NewGuid();
             _createdAt = DateTime.UtcNow;
@@ -28,28 +25,22 @@ namespace TwitterClone.Domain
             get { return _id; }
         }
 
-        public Guid SenderId
+        public Guid UserId
         {
-            get { return _senderId; }
-            set { _senderId = value; }
+            get { return _userId; }
+            set { _userId = value; }
         }
 
-        public Guid ReceiverId
+        public string Type
         {
-            get { return _receiverId; }
-            set { _receiverId = value; }
+            get { return _type; }
+            set { Type = value; }
         }
 
-        public string Content
+        public string Message
         {
-            get { return _content; }
-            set { _content = value; }
-        }
-
-        public DateTime SentAt
-        {
-            get { return _sentAt; }
-            set { _sentAt = value; }
+            get { return _message; }
+            set { _message = value; }
         }
 
         public bool IsRead

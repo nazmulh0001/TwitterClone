@@ -10,39 +10,34 @@ namespace TwitterClone.Domain.Entities
         private string _firstName;
         private string _lastName;
         private string _email;
-        private string _userName;
+        private DateTime _createdAt;
+        private DateTime _modifiedAt;
 
         public User()
         {
             _id = Guid.NewGuid();
+            _createdAt = DateTime.UtcNow;
         }
 
         public Guid Id
         {
             get { return _id; }
         }
-
         public string FirstName
         {
             get { return _firstName; }
             set { _firstName = value; }
         }
-        public string LastName
-        {
-            get { return _lastName; }
-            set { _lastName = value; }
-        }
 
-        public string Email
+        public DateTime CreatedAt
         {
-            get { return _email; }
-            set { _email = value; }
+            get { return _createdAt; }
         }
-
-        public string UserName
+        
+        public DateTime ModifiedAt
         {
-            get { return _userName; }
-            set { _userName = value; }
+            get { return _modifiedAt; }
+            set { _modifiedAt = value; }
         }
     }
 }

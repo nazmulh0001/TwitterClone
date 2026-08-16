@@ -4,61 +4,15 @@ using System.Text;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class Like
+    public class Like : BaseEntity
     {
-        public Guid _id;
-        public Guid _userId;
-        public Guid _tweetId;
-        private DateTime _createdAt;
-        private DateTime _modifiedAt;
-        private Guid _createdBy;
-        private Guid _modifiedBy;
+        public Guid Userid { get; set; }
+        public Guid TweetId { get; set; }
 
 
-        public Like()
+        public Like() : base(Guid.NewGuid())
         {
-            _id = Guid.NewGuid();
-            _createdAt = DateTime.UtcNow;
-        }
 
-        public Guid Id
-        {
-            get { return _id; }
-        }
-
-        public Guid UserId
-        {
-            get { return _userId; }
-            set { _userId = value; }
-        }
-
-        public Guid TwwetId
-        {
-            get { return _tweetId; }
-            set { _tweetId = value; }
-        }
-
-        public DateTime CreatedAt
-        {
-            get { return _createdAt; }
-        }
-
-        public DateTime ModifiedAt
-        {
-            get { return _modifiedAt; }
-            set { _modifiedAt = value; }
-        }
-
-        public Guid CreatedBy
-        {
-            get { return _createdBy; }
-            set { _createdBy = value; }
-        }
-
-        public Guid ModifiedBy
-        {
-            get { return _modifiedBy; }
-            set { _modifiedBy = value; }
         }
     }
 }

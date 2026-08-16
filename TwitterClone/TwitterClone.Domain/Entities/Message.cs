@@ -5,82 +5,20 @@ using TwitterClone.Domain.Entities;
 
 namespace TwitterClone.Domain
 {
-    public class Message
+    public class Message : BaseEntity
     {
-        private Guid _id;
-        private Guid _senderId;
-        private Guid _receiverId;
-        private string _content;
-        private DateTime _sentAt;
-        private bool _isRead;
-        private DateTime _createdAt;
-        private DateTime _modifiedAt;
-        private Guid _createdBy;
-        private Guid _modifiedBy;
+        public Guid SenderId { get; set; }
+        public Guid ReceiverId { get; set; }
+        public string Content { get; set; }
+        public bool IsRead { get; set; }
 
-
-        public Message()
+        public Message(Guid senderId, Guid receiverId, string content, bool isRead) : base(Guid.NewGuid())
         {
-            _id = Guid.NewGuid();
-            _createdAt = DateTime.UtcNow;
+            SenderId = senderId;
+            ReceiverId = receiverId;
+            Content = content;
+            IsRead = isRead;
         }
 
-        public Guid Id
-        {
-            get { return _id; }
-        }
-
-        public Guid SenderId
-        {
-            get { return _senderId; }
-            set { _senderId = value; }
-        }
-
-        public Guid ReceiverId
-        {
-            get { return _receiverId; }
-            set { _receiverId = value; }
-        }
-
-        public string Content
-        {
-            get { return _content; }
-            set { _content = value; }
-        }
-
-        public DateTime SentAt
-        {
-            get { return _sentAt; }
-            set { _sentAt = value; }
-        }
-
-        public bool IsRead
-        {
-            get { return _isRead; }
-            set { _isRead = value; }
-        }
-
-        public DateTime CreatedAt
-        {
-            get { return _createdAt; }
-        }
-
-        public DateTime ModifiedAt
-        {
-            get { return _modifiedAt; }
-            set { _modifiedAt = value; }
-        }
-
-        public Guid CreatedBy
-        {
-            get { return _createdBy; }
-            set { _createdBy = value; }
-        }
-
-        public Guid ModifiedBy
-        {
-            get { return _modifiedBy; }
-            set { _modifiedBy = value; }
-        }
     }
 }

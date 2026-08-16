@@ -4,62 +4,18 @@ using System.Text;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class Retweet
+    public class Retweet : BaseEntity
     {
-        private Guid _id;
-        private Guid _userId;
-        private Guid _tweetId;
-        private string _comment;
-        private DateTime _createdAt;
-        private DateTime _modifiedAt;
-        private Guid _createdBy;
-        private Guid _modifiedBy;
+        public Guid UserId { get; set; }
+        public Guid TweetId { get; set; }
+        public string Comment { get; set; }
 
-        public Retweet()
+        public Retweet(Guid userId, Guid tweetId, string comment) : base(Guid.NewGuid())
         {
-            _id = Guid.NewGuid();
-            _createdAt = DateTime.UtcNow;
+            UserId = userId;
+            TweetId = tweetId;
+            Comment = comment;
         }
 
-        public Guid UserId
-        {
-            get { return _userId; }
-            set { _userId = value; }
-        }
-
-        public Guid TweetId
-        {
-            get { return _tweetId; }
-            set { _tweetId = value; }
-        }
-
-        public string Comment
-        {
-            get { return _comment; }
-            set { _comment = value; }
-        }
-
-        public DateTime CreatedAt
-        {
-            get { return _createdAt; }
-        }
-
-        public DateTime ModifiedAt
-        {
-            get { return _modifiedAt; }
-            set { _modifiedAt = value; }
-        }
-
-        public Guid CreatedBy
-        {
-            get { return _createdBy; }
-            set { _createdBy = value; }
-        }
-
-        public Guid ModifiedBy
-        {
-            get { return _modifiedBy; }
-            set { _modifiedBy = value; }
-        }
     }
 }

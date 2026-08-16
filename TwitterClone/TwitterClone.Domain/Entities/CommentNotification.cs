@@ -21,7 +21,12 @@ namespace TwitterClone.Domain.Entities
         public override string DescribeRecord()
         {
             var baseRecord = base.DescribeRecord();
-            return $"{baseRecord} -> Notification type: {NotificationType}; Comment user id: {CommentUserId}; Comment message: {Message}";
+            return $"{baseRecord} -> Comment user id: {CommentUserId}; Comment message: {Message}";
+        }
+
+        public override string GetMessage()
+        {
+            return $"{UserId} commented on your tweet!";
         }
     }
 }

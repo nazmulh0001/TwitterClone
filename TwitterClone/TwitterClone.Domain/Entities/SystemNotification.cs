@@ -8,7 +8,7 @@ namespace TwitterClone.Domain.Entities
     {
         public Guid SystemNotificationId { get; set; }
 
-        public SystemNotification(Guid systemNotificationId) : base("System Notification")
+        public SystemNotification(Guid systemNotificationId) : base("System")
         {
             SystemNotificationId = systemNotificationId;
         }
@@ -16,6 +16,16 @@ namespace TwitterClone.Domain.Entities
         public void AddMessage(string message)
         {
             Message = message;
+        }
+
+        public override string DescribeRecord()
+        {
+            return $"Notification type: {NotificationType}; Comment user id: {UserId}; Comment message: {Message}";
+        }
+
+        public override string GetMessage()
+        {
+            return "System Notification: Unknown Error";
         }
     }
 }
